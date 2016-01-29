@@ -37,7 +37,6 @@ public class Main {
 
             System.out.println(Integer.toString(i)+"  -->  "+fileEntry.getName());
 
-
             text = new String(Files.readAllBytes(Paths.get("docs/"+fileEntry.getName())), StandardCharsets.UTF_8);
 
             client.prepareIndex("qizil", "article", Integer.toString(i++)).setSource(text).get();
@@ -49,7 +48,7 @@ public class Main {
         myAPI.getDocument(client, "qizil", "article", "1");
 
 
-        myAPI.searchDocument(client, "qizil", "article", "title", "Process");
+        //myAPI.searchDocument(client, "qizil", "article", "title", "Process");
 
         node.close();
     }
